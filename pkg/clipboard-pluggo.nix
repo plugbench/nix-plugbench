@@ -1,6 +1,6 @@
 {
   owner = "plugbench";
   repo = "clipboard-pluggo";
-  rev = "41f248b025a2fbf380b08e025eb9e8b1f63ad145";
-  sha256 = "GshOlUkYRIgqf8OHTMvk7/5ml5g3kloljSnASEVrh3Q=";
+  rev = "a04ea50ac1b7d154b21166ff2d32754407a63579";
+  sha256 = "XHHcNTDE0mgYF2Hbkr7J+fDjlIxgCgH7KvOOCq4vKBY=";
 }
