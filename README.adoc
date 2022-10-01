@@ -1,4 +1,4 @@
 nix-plugbench
 =============
 
-TODO: fill me in
+Derivations and modules for installing plugbench with Nix.
