@@ -3,21 +3,33 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils }: let
+    plugbenchOverlay = final: prev: let
+        pkg = file: overrides: let
+            src = prev.fetchFromGitHub (import file);
+          in
+            prev.callPackage "${src}/derivation.nix" ({ fetchFromGitHub = _: src; } // overrides);
+      in {
+        plumber-pluggo = pkg ./pkg/plumber-pluggo.nix {};
+      };
+  in
     (flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          overlays = [ plugbenchOverlay ];
+          inherit system;
+        };
       in {
         packages = {
+          inherit (pkgs) plumber-pluggo;
         };
         checks = {
           test = pkgs.runCommand "nix-plugbench-test" {} ''
             mkdir -p $out
-            :
+            : ${pkgs.plumber-pluggo}
           '';
         };
     })) // {
-      overlays.default = final: prev: {
-      };
+      overlays.default = plugbenchOverlay;
     };
 }
