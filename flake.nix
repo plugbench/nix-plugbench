@@ -38,6 +38,9 @@
 
       darwinModules = rec {
         plugbench = {
+          import = [
+            ./nix-darwin/modules
+          ];
           config = {
             nixpkgs.overlays = [ plugbenchOverlay ];
           };
