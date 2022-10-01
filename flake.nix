@@ -10,6 +10,10 @@
           in
             prev.callPackage "${src}/derivation.nix" ({ fetchFromGitHub = _: src; } // overrides);
       in {
+        clipboard-pluggo = pkg ./pkg/clipboard-pluggo.nix {
+          inherit (final.darwin.apple_sdk.frameworks) Cocoa;
+          inherit (final.xorg) libX11;
+        };
         kakoune-pluggo = pkg ./pkg/kakoune-pluggo.nix {};
         plumber-pluggo = pkg ./pkg/plumber-pluggo.nix {};
       };
@@ -23,6 +27,7 @@
       in {
         packages = {
           inherit (pkgs)
+              clipboard-pluggo
               kakoune-pluggo
               plumber-pluggo;
         };
