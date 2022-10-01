@@ -30,9 +30,29 @@
           test = pkgs.runCommand "nix-plugbench-test" {} ''
             mkdir -p $out
             : ${pkgs.plumber-pluggo}
+            : ${pkgs.kakoune-pluggo}
           '';
         };
     })) // {
       overlays.default = plugbenchOverlay;
+
+      darwinModules = rec {
+        plugbench = {
+          config = {
+            nixpkgs.overlays = [ plugbenchOverlay ];
+          };
+        };
+        default = plugbench;
+      };
+
+      nixosModules = rec {
+        plugbench = {
+          config = {
+            nixpkgs.overlays = [ plugbenchOverlay ];
+          };
+        };
+        default = plugbench;
+      };
+
     };
 }
