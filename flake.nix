@@ -10,6 +10,7 @@
           in
             prev.callPackage "${src}/derivation.nix" ({ fetchFromGitHub = _: src; } // overrides);
       in {
+        kakoune-pluggo = pkg ./pkg/kakoune-pluggo.nix {};
         plumber-pluggo = pkg ./pkg/plumber-pluggo.nix {};
       };
   in
@@ -21,7 +22,9 @@
         };
       in {
         packages = {
-          inherit (pkgs) plumber-pluggo;
+          inherit (pkgs)
+              kakoune-pluggo
+              plumber-pluggo;
         };
         checks = {
           test = pkgs.runCommand "nix-plugbench-test" {} ''
