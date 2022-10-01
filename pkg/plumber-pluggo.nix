@@ -1,6 +1,6 @@
 {
   owner = "plugbench";
   repo = "plumber-pluggo";
-  rev = "4d3e8e9adc48731bec5c71c716fb6921ae03addc";
-  sha256 = "k7PCuxf0jp1XeIXLYO4h78jcTLUUm3hi2tzu0KI5Z6c=";
+  rev = "3f6df9353fd87a63e774aa499c636d77ccb19d1b";
+  sha256 = "k/BhF5wFUxoGbgoPrBS0LpR5++Iq4xhAqCB+L3rS1a8=";
 }
