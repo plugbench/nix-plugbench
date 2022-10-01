@@ -38,7 +38,7 @@
 
       darwinModules = rec {
         plugbench = {
-          import = [
+          imports = [
             ./nix-darwin/modules
           ];
           config = {
