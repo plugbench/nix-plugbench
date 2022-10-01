@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = confg.plugbench.plumber;
+  cfg = config.plugbench.plumber;
 in {
   options.plugbench.plumber.enable = mkEnableOption "plugbench plumber";
 
