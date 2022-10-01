@@ -7,6 +7,8 @@ in {
   options.plugbench.kakoune.enable = mkEnableOption "plugbench kakoune";
 
   config = mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.kakoune-pluggo ];
+
     launchd.user.agents.plugbench-kakoune = {
       script = ''
         ${pkgs.kakoune-pluggo}/bin/kakoune-editor-service

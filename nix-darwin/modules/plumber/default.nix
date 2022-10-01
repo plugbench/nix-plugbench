@@ -7,6 +7,8 @@ in {
   options.plugbench.plumber.enable = mkEnableOption "plugbench plumber";
 
   config = mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.plumber-pluggo ];
+
     launchd.user.agents.plugbench-plumber = {
       script = ''
         ${pkgs.plumber-pluggo}/bin/plumber
