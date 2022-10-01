@@ -10,6 +10,7 @@ in {
     environment.systemPackages = [ pkgs.kakoune-pluggo ];
 
     launchd.user.agents.plugbench-kakoune = {
+      path = [ pkgs.kakoune ];
       script = ''
         ${pkgs.kakoune-pluggo}/bin/kakoune-editor-service
       '';
