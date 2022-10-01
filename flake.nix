@@ -11,7 +11,7 @@
         packages = {
         };
         checks = {
-          test = pkgs.runCommandNoCC "nix-plugbench-test" {} ''
+          test = pkgs.runCommand "nix-plugbench-test" {} ''
             mkdir -p $out
             :
           '';
