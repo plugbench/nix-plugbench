@@ -1,6 +1,6 @@
 {
   owner = "plugbench";
   repo = "kakoune-pluggo";
-  rev = "90b1af3af8469e1b96fa70cacb82407dd0703aab";
-  sha256 = "omXaCz53z8T3FVajJoIa9S5yGaYUouHqMWW3eG9aWPE=";
+  rev = "9dcb8241cb33b55ebb7a89f181bd3a46c122bc83";
+  sha256 = "8Yq7Gs1WOOSYtQTwWcMGvcm0Cnds+y5DqSKNOH5akhc=";
 }
