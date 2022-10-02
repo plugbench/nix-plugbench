@@ -2,43 +2,27 @@
   description = "Derivations and modules for installing plugbench with Nix.";
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
+
+    clipboard-pluggo.url = "github:plugbench/clipboard-pluggo";
+    clipboard-pluggo.inputs.nixpkgs.follows = "nixpkgs";
+
+    kakoune-pluggo.url = "github:plugbench/kakoune-pluggo";
+    kakoune-pluggo.inputs.nixpkgs.follows = "nixpkgs";
+
+    plumber-pluggo.url = "github:plugbench/plumber-pluggo";
+    plumber-pluggo.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, flake-utils }: let
-    plugbenchOverlay = final: prev: let
-        pkg = file: overrides: let
-            src = prev.fetchFromGitHub (import file);
-          in
-            prev.callPackage "${src}/derivation.nix" ({ fetchFromGitHub = _: src; } // overrides);
-      in {
-        clipboard-pluggo = pkg ./pkg/clipboard-pluggo.nix {
-          inherit (final.darwin.apple_sdk.frameworks) Cocoa;
-          inherit (final.xorg) libX11;
-        };
-        kakoune-pluggo = pkg ./pkg/kakoune-pluggo.nix {};
-        plumber-pluggo = pkg ./pkg/plumber-pluggo.nix {};
-      };
+  outputs = { self, nixpkgs, flake-utils, clipboard-pluggo, kakoune-pluggo, plumber-pluggo }: let
+    plugbenchOverlay = final: prev:
+      clipboard-pluggo.overlays.default final prev //
+      kakoune-pluggo.overlays.default final prev //
+      plumber-pluggo.overlays.default final prev;
   in
-    (flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          overlays = [ plugbenchOverlay ];
-          inherit system;
-        };
-      in {
-        packages = {
-          inherit (pkgs)
-              clipboard-pluggo
-              kakoune-pluggo
-              plumber-pluggo;
-        };
-        checks = {
-          test = pkgs.runCommand "nix-plugbench-test" {} ''
-            mkdir -p $out
-            : ${pkgs.plumber-pluggo}
-            : ${pkgs.kakoune-pluggo}
-          '';
-        };
-    })) // {
+    (flake-utils.lib.eachDefaultSystem (system: {
+      packages = clipboard-pluggo.packages.${system} //
+                 kakoune-pluggo.packages.${system} //
+                 plumber-pluggo.packages.${system};
+     })) // {
       overlays.default = plugbenchOverlay;
 
       darwinModules = rec {
