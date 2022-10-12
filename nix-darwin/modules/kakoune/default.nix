@@ -30,7 +30,7 @@ in {
        in {
          kakoune = prev.kakoune.overrideAttrs (finalAttrs: prevAttrs: {
            paths = prevAttrs.paths ++ [ pluggo-init ];
-         })
+         });
        })
     ];
 
