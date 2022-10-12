@@ -15,6 +15,7 @@ in {
          pluggo-init = prev.stdenv.mkDerivation {
            name = "kakoune-pluggo-init";
 
+           unpackPhase = ":";
            installPhase = ''
              runHook preInstall
 
