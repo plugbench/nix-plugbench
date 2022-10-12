@@ -12,7 +12,7 @@ in {
 
     nixpkgs.overlays = [
       (final: prev: let
-         pluggo-init = prev.mkDerivation {
+         pluggo-init = prev.stdenv.mkDerivation {
            name = "kakoune-pluggo-init";
 
            installPhase = ''
