@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1664802377,
-        "narHash": "sha256-1qitJVrRTd5OKa9LWFMQzClTPHP98M+mY66I5B3VbDA=",
+        "lastModified": 1665686422,
+        "narHash": "sha256-i6g82SUKGdnrkw7E+FOpDLMlOrG04RTEV1C6blRme/c=",
         "owner": "plugbench",
         "repo": "clipboard-pluggo",
-        "rev": "50709f4d3861e4c36453a9ea8158b0b29169bd24",
+        "rev": "a04614fea613db73f1eadf8169a6feed300d3d86",
         "type": "github"
       },
       "original": {
