@@ -33,16 +33,6 @@ in {
          });
        })
     ];
-
-    launchd.user.agents.plugbench-kakoune = {
-      path = [ pkgs.kakoune ];
-      script = ''
-        ${pkgs.kakoune-pluggo}/bin/kakoune-pluggo
-      '';
-      serviceConfig = {
-        KeepAlive = true;
-      };
-    };
   };
 
 }
