@@ -21,7 +21,7 @@ in {
              target="$out/share/kak/autoload/plugins"
              mkdir -p "$target"
              cat <<EOF >"$target/kakoune-pluggo-init.kak"
-             evaluate-commands %sh{${final.kakoune-pluggo}/bin/kakoune-pluggo-start-session "$kak_session"}
+             evaluate-commands %sh{${final.kakoune-pluggo}/bin/kakoune-pluggo start-session "$kak_session"}
              EOF
 
              runHook postInstall
