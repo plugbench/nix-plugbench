@@ -89,11 +89,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1666792017,
-        "narHash": "sha256-oyx6khVa0nOlqgOvIskhqlA8ibuJftnlkw8o9+wVHgU=",
+        "lastModified": 1666795116,
+        "narHash": "sha256-Lbi6SMORX4UqmBDB+HoraKj6ErED5Zb9VE4Xl9aI9No=",
         "owner": "plugbench",
         "repo": "kakoune-pluggo",
-        "rev": "891cf26245a9dd6ccfbff73285abf54dcd349053",
+        "rev": "ec326279b2883003e6d3d748c2d2722563de1324",
         "type": "github"
       },
       "original": {
