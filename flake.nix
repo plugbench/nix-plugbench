@@ -29,6 +29,7 @@
         plugbench = {
           imports = [
             ./nix-darwin/modules
+            ./common/modules
           ];
           config = {
             nixpkgs.overlays = [ plugbenchOverlay ];
@@ -39,6 +40,10 @@
 
       nixosModules = rec {
         plugbench = {
+          imports = [
+            ./nixos/modules
+            ./common/modules
+          ];
           config = {
             nixpkgs.overlays = [ plugbenchOverlay ];
           };

@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./clipboard
-    ./plumber
+    ./kakoune
   ];
 }
+
