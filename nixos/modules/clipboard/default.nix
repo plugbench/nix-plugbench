@@ -5,7 +5,7 @@ let
   cfg = config.plugbench.clipboard;
 in {
   config = mkIf cfg.enable {
-    services.x11.displayManager.sessionCommands = ''
+    services.xserver.displayManager.sessionCommands = ''
       ${pkgs.clipboard-pluggo}/bin/clipboard &
     '';
   };
