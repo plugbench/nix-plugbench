@@ -2,11 +2,14 @@
 
 with lib;
 let
+  tokenVar = if config.plugbench.token == null;
+             then ""
+             else "NIX_TOKEN=" + (escapeShellArg token);
   cfg = config.plugbench.clipboard;
 in {
   config = mkIf cfg.enable {
     services.xserver.displayManager.sessionCommands = ''
-      ${pkgs.clipboard-pluggo}/bin/clipboard &
+      ${tokenVar} ${pkgs.clipboard-pluggo}/bin/clipboard &
     '';
   };
 }
