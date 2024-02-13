@@ -13,8 +13,6 @@ in {
       environment.NATS_TOKEN = mkIf (token != null) token;
       serviceConfig = {
         KeepAlive = true;
-        StandardOutPath = "/tmp/clipboard.out";
-        StandardErrorPath = "/tmp/clipboard.err";
       };
     };
   };
