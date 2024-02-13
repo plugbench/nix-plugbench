@@ -10,7 +10,7 @@ in {
       script = ''
         ${pkgs.clipboard-pluggo}/bin/clipboard
       '';
-      environment.NIX_TOKEN = mkIf (token != null) token;
+      environment.NATS_TOKEN = mkIf (token != null) token;
       serviceConfig = {
         KeepAlive = true;
         StandardOutPath = "/tmp/clipboard.out";

@@ -4,7 +4,7 @@ with lib;
 let
   tokenVar = if config.plugbench.token == null
              then ""
-             else "NIX_TOKEN=" + (escapeShellArg config.plugbench.token);
+             else "NATS_TOKEN=" + (escapeShellArg config.plugbench.token);
   cfg = config.plugbench.clipboard;
 in {
   config = mkIf cfg.enable {
