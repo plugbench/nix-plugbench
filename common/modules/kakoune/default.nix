@@ -6,7 +6,7 @@ let
 
   tokenVar = if config.plugbench.token == null
              then ""
-             else "NIX_TOKEN=" + (escapeShellArg token);
+             else "NIX_TOKEN=" + (escapeShellArg config.plugbench.token);
 in {
   options.plugbench.kakoune.enable = mkEnableOption "plugbench kakoune";
 
