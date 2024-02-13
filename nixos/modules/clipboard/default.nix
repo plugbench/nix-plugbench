@@ -2,7 +2,7 @@
 
 with lib;
 let
-  tokenVar = if config.plugbench.token == null;
+  tokenVar = if config.plugbench.token == null
              then ""
              else "NIX_TOKEN=" + (escapeShellArg token);
   cfg = config.plugbench.clipboard;

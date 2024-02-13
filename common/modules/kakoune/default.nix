@@ -4,7 +4,7 @@ with lib;
 let
   cfg = config.plugbench.kakoune;
 
-  tokenVar = if config.plugbench.token == null;
+  tokenVar = if config.plugbench.token == null
              then ""
              else "NIX_TOKEN=" + (escapeShellArg token);
 in {
