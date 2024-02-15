@@ -4,7 +4,7 @@ with lib;
 let
   cfg = config.plugbench.plumber;
 in {
-  options.plugbench.plumber {
+  options.plugbench.plumber = {
     enable = mkEnableOption "plugbench plumber";
     client = mkEnableOption "plugbench client";
   };
