@@ -44,11 +44,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1705309234,
-        "narHash": "sha256-uNRRNRKmJyCRC/8y1RqBkqWBLM034y4qN7EprSdmgyA=",
+        "lastModified": 1726560853,
+        "narHash": "sha256-X6rJYSESBVr3hBoH0WbKE5KvhPU5bloyZ2L4K60/fPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "1ef2e671c3b0c19053962c07dbda38332dcebf26",
+        "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
         "type": "github"
       },
       "original": {
@@ -116,12 +116,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1707711327,
-        "narHash": "sha256-JaiR0Er0Bx80CT5POOYR1I1tLM7VvC2/ny6mOmkoRQw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "01737456dfe4907fb5bdc8af39ac8c6d6b1fb551",
-        "type": "github"
+        "lastModified": 0,
+        "narHash": "sha256-6C2dhAAzRZ1FQNUrp/rzNNY94TTPCWIAmaj19qepPL0=",
+        "path": "/nix/store/s18a6fwak2266mrbmgckm6q2ccw0jp2p-source",
+        "type": "path"
       },
       "original": {
         "id": "nixpkgs",
@@ -136,11 +134,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1707841416,
-        "narHash": "sha256-A90SifOKJJqSWwm6rIw/YDgChNht7eIpctvVXpuFgKY=",
+        "lastModified": 1730123140,
+        "narHash": "sha256-Rj4uy83Fbc9HaIgvFeOcV2MCvAA0oZ1ufER+iRsX6hk=",
         "owner": "plugbench",
         "repo": "plumber-pluggo",
-        "rev": "7e5985786399d5a790e5efcb615c198aec633b24",
+        "rev": "c06c48babecedd925d0902bac234b7dfe788ee65",
         "type": "github"
       },
       "original": {
