@@ -14,9 +14,7 @@ in {
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.plumber-pluggo}/bin/plumber";
-        Environment = optionalAttrs (token != null) {
-          NATS_TOKEN = token;
-        };
+        Environment = optional (token != null) "NATS_TOKEN=${token}";
         Restart = "always";
         RestartSec = "5";
       };
