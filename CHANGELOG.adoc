@@ -3,4 +3,9 @@ Changes
 
 Unreleased
 ----------
+* Added `plugbench.tokenFile`, a path to a file containing the token, read
+  when each pluggo starts instead of being copied into the Nix store.  Use it
+  with agenix and friends.  It takes precedence over `plugbench.token`.
+* `plugbench.token` is no longer placed in `NATS_TOKEN` in the launchd agent
+  plists on darwin; it is passed on the pluggo's command line instead.
 

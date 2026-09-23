@@ -3,10 +3,6 @@
 with lib;
 let
   cfg = config.plugbench.kakoune;
-
-  tokenVar = if config.plugbench.token == null
-             then ""
-             else "NATS_TOKEN=" + (escapeShellArg config.plugbench.token);
 in {
   options.plugbench.kakoune.enable = mkEnableOption "plugbench kakoune";
 
@@ -23,8 +19,10 @@ in {
 
              target="$out/share/kak/autoload/plugins"
              mkdir -p "$target"
-             cat <<EOF >"$target/kakoune-pluggo-init.kak"
-             evaluate-commands %sh{${tokenVar} ${final.kakoune-pluggo}/bin/kakoune-pluggo start-session}
+             # Quoted delimiter: the token may be a $(cat ...) that has to
+             # survive to kak start-up rather than run here in the sandbox.
+             cat <<'EOF' >"$target/kakoune-pluggo-init.kak"
+             evaluate-commands %sh{${config.plugbench.tokenPrefix} ${final.kakoune-pluggo}/bin/kakoune-pluggo start-session}
              EOF
 
              runHook postInstall

@@ -2,8 +2,11 @@
 
 with lib;
 let
-  token = config.plugbench.token;
   cfg = config.plugbench.plumber;
+
+  start = pkgs.writeShellScript "plugbench-plumber" ''
+    ${config.plugbench.tokenPrefix} exec ${pkgs.plumber-pluggo}/bin/plumber
+  '';
 in {
   config = mkIf cfg.enable {
     systemd.user.services.plugbench-plumber = {
@@ -13,8 +16,7 @@ in {
       description = "Plugbench Plumber";
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${pkgs.plumber-pluggo}/bin/plumber";
-        Environment = optional (token != null) "NATS_TOKEN=${token}";
+        ExecStart = "${start}";
         Restart = "always";
         RestartSec = "5";
       };
