@@ -14,19 +14,24 @@
 
     plumber-pluggo.url = "github:plugbench/plumber-pluggo";
     plumber-pluggo.inputs.nixpkgs.follows = "nixpkgs";
+
+    sigils-pluggo.url = "github:plugbench/sigils-pluggo";
+    sigils-pluggo.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, flake-utils, clipboard-pluggo, fre-pluggo, kakoune-pluggo, plumber-pluggo }: let
+  outputs = { self, nixpkgs, flake-utils, clipboard-pluggo, fre-pluggo, kakoune-pluggo, plumber-pluggo, sigils-pluggo }: let
     plugbenchOverlay = final: prev:
       clipboard-pluggo.overlays.default final prev //
       fre-pluggo.overlays.default final prev //
       kakoune-pluggo.overlays.default final prev //
-      plumber-pluggo.overlays.default final prev;
+      plumber-pluggo.overlays.default final prev //
+      sigils-pluggo.overlays.default final prev;
   in
     (flake-utils.lib.eachDefaultSystem (system: {
       packages = clipboard-pluggo.packages.${system} //
                  fre-pluggo.packages.${system} //
                  kakoune-pluggo.packages.${system} //
-                 plumber-pluggo.packages.${system};
+                 plumber-pluggo.packages.${system} //
+                 sigils-pluggo.packages.${system};
      })) // {
       overlays.default = plugbenchOverlay;
 

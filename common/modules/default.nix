@@ -7,6 +7,7 @@ with lib;
     ./fre
     ./kakoune
     ./plumber
+    ./sigils
   ];
 
   options = {
