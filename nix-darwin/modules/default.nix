@@ -3,6 +3,7 @@
 {
   imports = [
     ./clipboard
+    ./fre
     ./plumber
   ];
 }

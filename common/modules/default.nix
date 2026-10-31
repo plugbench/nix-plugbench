@@ -4,6 +4,7 @@ with lib;
 {
   imports = [
     ./clipboard
+    ./fre
     ./kakoune
     ./plumber
   ];
