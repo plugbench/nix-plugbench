@@ -26,10 +26,10 @@ with lib;
       default = null;
       example = "/run/agenix/nats-token";
       description = ''
-        File containing the token used to connect, with no trailing newline
-        or surrounding whitespace.  Read each time a pluggo starts, so the
-        token never enters the Nix store -- this is what you want with
-        agenix and friends.
+        File containing the token used to connect, on its own; a trailing
+        newline is fine.  Read each time a pluggo starts, so the token never
+        enters the Nix store -- this is what you want with agenix and
+        friends.
 
         Takes precedence over {option}`plugbench.token` when both are set.
       '';
