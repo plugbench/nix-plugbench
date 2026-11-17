@@ -5,7 +5,7 @@ let
   cfg = config.plugbench.plumber;
 
   start = pkgs.writeShellScript "plugbench-plumber" ''
-    ${config.plugbench.tokenPrefix} exec ${pkgs.plumber-pluggo}/bin/plumber
+    exec ${pkgs.plumber-pluggo}/bin/plumber
   '';
 in {
   config = mkIf cfg.enable {

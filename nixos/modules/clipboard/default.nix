@@ -6,7 +6,7 @@ let
 in {
   config = mkIf cfg.enable {
     services.xserver.displayManager.sessionCommands = ''
-      ${config.plugbench.tokenPrefix} ${pkgs.clipboard-pluggo}/bin/clipboard &
+      ${pkgs.clipboard-pluggo}/bin/clipboard &
     '';
   };
 }

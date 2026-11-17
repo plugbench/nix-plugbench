@@ -19,10 +19,8 @@ in {
 
              target="$out/share/kak/autoload/plugins"
              mkdir -p "$target"
-             # Quoted delimiter: the token may be a $(cat ...) that has to
-             # survive to kak start-up rather than run here in the sandbox.
              cat <<'EOF' >"$target/kakoune-pluggo-init.kak"
-             evaluate-commands %sh{${config.plugbench.tokenPrefix} ${final.kakoune-pluggo}/bin/kakoune-pluggo start-session}
+             evaluate-commands %sh{${final.kakoune-pluggo}/bin/kakoune-pluggo start-session}
              EOF
 
              runHook postInstall

@@ -5,7 +5,7 @@ let
   cfg = config.plugbench.fre;
 
   start = pkgs.writeShellScript "plugbench-fre" ''
-    ${config.plugbench.tokenPrefix} exec ${pkgs.fre-pluggo}/bin/fre-pluggo daemon
+    exec ${pkgs.fre-pluggo}/bin/fre-pluggo daemon
   '';
 in {
   config = mkIf cfg.enable {

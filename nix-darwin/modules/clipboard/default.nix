@@ -7,7 +7,7 @@ in {
   config = mkIf cfg.enable {
     launchd.user.agents.plugbench-clipboard = {
       script = ''
-        ${config.plugbench.tokenPrefix} exec ${pkgs.clipboard-pluggo}/bin/clipboard
+        exec ${pkgs.clipboard-pluggo}/bin/clipboard
       '';
       serviceConfig = {
         KeepAlive = true;

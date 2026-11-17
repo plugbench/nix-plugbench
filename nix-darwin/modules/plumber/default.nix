@@ -7,7 +7,7 @@ in {
   config = mkIf cfg.enable {
     launchd.user.agents.plugbench-plumber = {
       script = ''
-        ${config.plugbench.tokenPrefix} exec ${pkgs.plumber-pluggo}/bin/plumber
+        exec ${pkgs.plumber-pluggo}/bin/plumber
       '';
       serviceConfig = {
         KeepAlive = true;

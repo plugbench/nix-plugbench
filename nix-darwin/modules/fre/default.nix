@@ -7,7 +7,7 @@ in {
   config = mkIf cfg.enable {
     launchd.user.agents.plugbench-fre = {
       script = ''
-        ${config.plugbench.tokenPrefix} exec ${pkgs.fre-pluggo}/bin/fre-pluggo daemon
+        exec ${pkgs.fre-pluggo}/bin/fre-pluggo daemon
       '';
       serviceConfig = {
         KeepAlive = true;

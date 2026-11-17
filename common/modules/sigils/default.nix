@@ -11,17 +11,15 @@ in {
       type = types.package;
       readOnly = true;
       description = ''
-        `sigils`, with the token.  Window managers, which start it, don't
-        usually have the token in their environment.
+        The sigils-pluggo package, for window managers to start `sigils`
+        from.
       '';
     };
   };
 
   config = mkMerge [
     {
-      plugbench.sigils.package = pkgs.writeShellScriptBin "sigils" ''
-        ${config.plugbench.tokenPrefix} exec ${pkgs.sigils-pluggo}/bin/sigils "$@"
-      '';
+      plugbench.sigils.package = pkgs.sigils-pluggo;
     }
     (mkIf cfg.enable {
       environment.systemPackages = [ cfg.package ];

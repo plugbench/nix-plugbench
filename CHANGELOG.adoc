@@ -9,7 +9,12 @@ Unreleased
 * Added `plugbench.fre.enable`, which runs fre-pluggo, a frecency store, and
   `plugbench.fre.client`, which installs only its command.
 * Added `plugbench.sigils.enable`, which installs `sigils` from sigils-pluggo,
-  with the token, and `plugbench.sigils.package`, for window managers.
+  and `plugbench.sigils.package`, for window managers.
+* Every pluggo package is wrapped to set `NATS_TOKEN` from `plugbench.token`
+  or `plugbench.tokenFile`, so each command has the token however it is
+  started -- from a shell, a service manager, a window manager, or Kakoune.
+  Before, only the services had it, and commands such as `plumb` relied on
+  `NATS_TOKEN` being in the caller's environment.
 * `plugbench.token` is no longer placed in `NATS_TOKEN` in the launchd agent
-  plists on darwin; it is passed on the pluggo's command line instead.
+  plists on darwin.
 
