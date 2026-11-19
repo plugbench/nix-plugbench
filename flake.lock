@@ -192,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793480457,
-        "narHash": "sha256-2Q4hnOabPSeVNVHIoo1dHqHTFCS1uLQ2zLzusHoHdnM=",
+        "lastModified": 1795121829,
+        "narHash": "sha256-m9A6aSFVnJmDRDRqZq/mdzzFCuBn9i7NtLZ5UjFShyg=",
         "owner": "plugbench",
         "repo": "plumber-pluggo",
-        "rev": "ce8930995c8fd0acd8f6fe4d816296902b8f2f9f",
+        "rev": "3cb44128bdce052c896a514372a586db6ebf727a",
         "type": "github"
       },
       "original": {
